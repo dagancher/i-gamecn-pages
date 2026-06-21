@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>爱游戏 · 资料索引与信息整理</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f2f4f7;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #2c3e4f;
+      line-height: 1.6;
+      padding: 2rem 1.2rem;
+    }
+
+    .page {
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+
+    /* hero 横幅 — 杂志专题感 */
+    .hero {
+      background: #ffffffcc;
+      backdrop-filter: blur(2px);
+      padding: 2.8rem 2rem;
+      border-radius: 28px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.03), 0 0 0 1px rgba(0,0,0,0.04);
+      margin-bottom: 2.6rem;
+      text-align: center;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .hero:hover {
+      box-shadow: 0 8px 22px rgba(0,0,0,0.04), 0 0 0 1px #cbd5e1;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 450;
+      letter-spacing: -0.02em;
+      color: #1e2b39;
+      display: inline-block;
+      background: linear-gradient(135deg, #1f2a38, #314b5e);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero .sub {
+      font-size: 1.1rem;
+      color: #5b6e7e;
+      background: #eef1f5;
+      display: inline-block;
+      padding: 0.2rem 1.4rem;
+      border-radius: 40px;
+      letter-spacing: 0.02em;
+      box-shadow: inset 0 0 0 1px #dbe0e6;
+    }
+
+    .hero p {
+      margin-top: 1.2rem;
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #3d5467;
+      font-size: 1rem;
+    }
+
+    /* 背景卡片说明 */
+    .background-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 2rem 2.2rem;
+      margin-bottom: 2.2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02), 0 0 0 1px #e8ecf0;
+    }
+
+    .background-card h2 {
+      font-size: 1.5rem;
+      font-weight: 460;
+      border-left: 4px solid #849aa8;
+      padding-left: 1rem;
+      margin-bottom: 1rem;
+      color: #1e2e3c;
+    }
+
+    .background-card p {
+      color: #3a4f60;
+      margin-bottom: 0.9rem;
+    }
+
+    .background-card .quiet-tag {
+      display: inline-block;
+      background: #eef2f6;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      color: #526b7a;
+      margin-top: 0.2rem;
+      border: 1px solid #dde4ea;
+    }
+
+    /* 三段自然介绍 — 信息索引视角 */
+    .info-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+      margin-bottom: 2.2rem;
+    }
+
+    .info-card {
+      background: #ffffff;
+      border-radius: 22px;
+      padding: 1.8rem 2rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.01), 0 0 0 1px #e2e8ed;
+      transition: background 0.15s;
+    }
+
+    .info-card:hover {
+      background: #fafcfe;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02), 0 0 0 1px #d1dbe3;
+    }
+
+    .info-card .card-num {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #7c93a2;
+      border-bottom: 1px dashed #d5dee5;
+      padding-bottom: 0.2rem;
+      margin-bottom: 0.8rem;
+      display: inline-block;
+    }
+
+    .info-card h3 {
+      font-size: 1.3rem;
+      font-weight: 440;
+      color: #1b2c3b;
+      margin-bottom: 0.6rem;
+    }
+
+    .info-card p {
+      color: #3c5466;
+      font-size: 0.98rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .info-card .inset-link {
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .info-card a {
+      color: #2b5775;
+      text-decoration: none;
+      border-bottom: 1px dotted #abc0ce;
+      transition: border 0.15s, color 0.15s;
+    }
+
+    .info-card a:hover {
+      color: #0f2f44;
+      border-bottom: 1px solid #0f2f44;
+    }
+
+    /* 场景 + 提示混合区 (类似FAQ摘要) */
+    .scene-note {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 2rem 2.2rem;
+      margin-bottom: 2.2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02), 0 0 0 1px #e8ecf0;
+    }
+
+    .scene-note h2 {
+      font-size: 1.4rem;
+      font-weight: 450;
+      color: #1f3343;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .scene-note h2 small {
+      font-weight: 400;
+      font-size: 0.8rem;
+      background: #eef3f7;
+      padding: 0.1rem 0.8rem;
+      border-radius: 20px;
+      color: #506b7c;
+    }
+
+    .scene-note ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .scene-note li {
+      padding: 0.6rem 0 0.6rem 1.8rem;
+      position: relative;
+      color: #2c4456;
+      border-bottom: 1px solid #eff3f7;
+    }
+
+    .scene-note li:last-child {
+      border-bottom: 0;
+    }
+
+    .scene-note li::before {
+      content: "·";
+      position: absolute;
+      left: 0.3rem;
+      color: #7a93a5;
+      font-weight: 700;
+      font-size: 1.4rem;
+    }
+
+    /* 页尾访问提示 — 自然嵌入链接 */
+    .foot-note {
+      background: #e7ecf2;
+      border-radius: 30px;
+      padding: 1.6rem 2rem;
+      text-align: center;
+      color: #2b4051;
+      box-shadow: 0 0 0 1px #d3dce5;
+      font-size: 1rem;
+      margin-top: 0.8rem;
+    }
+
+    .foot-note a {
+      color: #1d4058;
+      text-decoration: none;
+      font-weight: 480;
+      border-bottom: 1px solid #9fb7c9;
+      transition: border 0.15s;
+    }
+
+    .foot-note a:hover {
+      border-bottom: 1px solid #1a364b;
+    }
+
+    .foot-note .light-extra {
+      display: block;
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      color: #597086;
+    }
+
+    /* 响应式 */
+    @media (max-width: 600px) {
+      body { padding: 1rem 0.8rem; }
+      .hero { padding: 1.8rem 1.2rem; }
+      .hero h1 { font-size: 1.9rem; }
+      .background-card { padding: 1.6rem 1.2rem; }
+      .info-card { padding: 1.4rem 1.2rem; }
+      .scene-note { padding: 1.6rem 1.2rem; }
+      .foot-note { padding: 1.2rem 1rem; }
+    }
+
+    @media (min-width: 760px) {
+      .info-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- hero 横幅 -->
+  <div class="hero">
+    <h1>爱游戏</h1>
+    <div class="sub">资料整理 · 信息索引</div>
+    <p>从散落的资讯中梳理脉络，把关于游戏的记录变得有秩序。一份安静的案头参考，不追逐热点，只在意内容本身。</p>
+  </div>
+
+  <!-- 背景说明：为什么做这样的索引 -->
+  <div class="background-card">
+    <h2>从零散到有序</h2>
+    <p>游戏内容的生产从未停止，但信息跑得太快，很多时候我们记不起在哪看过某篇分析、某个版本说明或某份设定汇总。<strong>爱游戏</strong> 尝试扮演一个安静的整理者——把浮在表面的资讯沉淀下来，按主题、时间或逻辑重新排列。</p>
+    <p>这里没有算法推荐，只有基于资料本身的归类。如果你也在寻找某个游戏的历史更新记录，或是想翻一翻某类题材的讨论脉络，或许能在这里找到起点。</p>
+    <span class="quiet-tag">以记录的方式理解游戏</span>
+  </div>
+
+  <!-- 三段自然介绍：从信息索引视角展开 -->
+  <div class="info-grid">
+    <!-- 卡片 1 -->
+    <div class="info-card">
+      <span class="card-num">索引 · 01</span>
+      <h3>话题归档</h3>
+      <p>每个游戏背后都有大量讨论：版本演变、社区观点、机制拆解。我们把这些内容按话题打包，方便回溯。</p>
+      <p>比如某个经典地图的迭代记录，或者某次职业平衡调整的前后反馈。归档不评价，只陈列。</p>
+    </div>
+    <!-- 卡片 2 -->
+    <div class="info-card">
+      <span class="card-num">索引 · 02</span>
+      <h3>来源备注</h3>
+      <p>每条整理都附上原始出处或参考来源，你可以自行判断可信度。我们不做二次加工，只做线索串联。</p>
+      <p>如果你在别处看到过互相矛盾的报道，不妨对比这里的原始链接。</p>
+    </div>
+    <!-- 卡片 3 -->
+    <div class="info-card">
+      <span class="card-num">索引 · 03</span>
+      <h3>轻量协作</h3>
+      <p>每份资料都开放建议通道。如果你发现遗漏或错误，可以提交补充。页面的维护依赖社区的共同参与。</p>
+      <p>目前已有十几个主题页持续更新，涉及单机、联机、以及一些独立作品。</p>
+      <div class="inset-link">→ 了解更多关于 <a href="https://i-gamecn.com.cn">爱游戏</a> 的索引方式</div>
+    </div>
+  </div>
+
+  <!-- 场景 + 提示（FAQ 摘要形式） -->
+  <div class="scene-note">
+    <h2>常见场景 <small>检索参考</small></h2>
+    <ul>
+      <li><strong>想回顾某款游戏的大型更新顺序</strong> — 按版本号或时间线整理的变更日志正在逐步收录。</li>
+      <li><strong>查找特定游戏机制的社区解释</strong> — 很多机制经过多次修正，旧帖和新帖说法不同，索引会保留多个时期的观点。</li>
+      <li><strong>对比不同来源的媒体评分或玩家反馈</strong> — 只列事实，不合成结论，你需要什么自己判断。</li>
+      <li><strong>偶尔翻翻某类题材的发展脉络</strong> — 从早期文字冒险到当代开放世界，按主题分类的文献式梳理。</li>
+    </ul>
+  </div>
+
+  <!-- 页尾访问提示 — 链接自然嵌入句子 -->
+  <div class="foot-note">
+    如果你习惯从资料直接入手，可以试试访问 <a href="https://i-gamecn.com.cn">爱游戏</a> 的主站索引，那里按分类存放了更多未拆分的原始内容。页面保持低频率更新，但每次都会补一批新的参考条目。
+    <span class="light-extra">整理即留白 · 不打扰的阅读方式</span>
+  </div>
+
+  <!-- 隐性的说明行（仅体现页面完整性，无实际意义） -->
+  <div style="height:0.1rem; opacity:0; overflow:hidden;">·</div>
+</div>
+</body>
+</html>
